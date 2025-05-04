@@ -1,0 +1,82 @@
+.navigation {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: 12vh;
+  background-color: #1e1d1d;
+  padding: 2rem;
+}
+.image {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.4rem;
+  background: linear-gradient(to top right, #c8ce09, #f68a06);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 1px 1px 4px #e5f22d;
+  text-decoration: none;
+}
+
+.links {
+  width: 50%;
+}
+
+.ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  list-style-type: none;
+  height: 100%;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.li {
+  width: 25%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.active {
+  text-decoration: none;
+  color: yellow;
+  text-shadow: 1px 1px 2px rgba(1, 1, 1, 0.2);
+  position: relative;
+}
+.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px; 
+  background-color: #3c84fb;
+  bottom: -4px; 
+  left: 0;
+}
+
+
+.notactive {
+  color: white;
+  text-decoration: none;
+  text-shadow: 2px 2px 3px rgba(228, 133, 18, 0.5);
+  position: relative;
+  overflow: hidden; 
+}
+
+.notactive::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  background-color: orange;
+  bottom: -4px;
+  left: 50%; 
+  transition: width 0.3s ease-in-out, 0.2s ease-in-out;
+}
+
+.notactive:hover::after {
+  width: 100%; 
+  left: 0; 
+}
