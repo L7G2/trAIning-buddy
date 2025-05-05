@@ -13,7 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Reset marginesów i paddingu */
 * {
   margin: 0;
   padding: 0;
@@ -25,17 +24,7 @@
   box-sizing: inherit;
 }
 
-/* Rozmieszczenie i układ z drugiego pliku */
 html {
   box-sizing: border-box;
-  font-size: 62.5%; /* 1rem = 10px przy standardowym 16px */
-}
-
-body {
-  font-family: "Lato", system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  min-height: 100vh;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  font-size: 62.5%; 
 }
