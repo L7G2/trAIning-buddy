@@ -32,6 +32,16 @@ function NotLoggedNav() {
             </li>
             <li className={classes.li}>
               <NavLink
+                to="caloriecalculator"
+                className={({ isActive }) =>
+                  isActive ? classes.active : classes.notactive
+                }
+              >
+                Kalkulator Kalorii
+              </NavLink>
+            </li>
+            <li className={classes.li}>
+              <NavLink
                 to="login"
                 className={({ isActive }) =>
                   isActive ? classes.active : classes.notactive
