@@ -1,5 +1,4 @@
 .coach-frame{
-    background: linear-gradient(to right, green 1%, black 40%);
     display: flex;
     width: 90%;
     min-height: 40vh;

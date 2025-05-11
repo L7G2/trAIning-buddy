@@ -1,5 +1,4 @@
 .client-frame{
-    background: linear-gradient(to right, black 0%, rgb(226, 226, 78) 99%);
     display: flex;
     width: 90%;
     min-height: 40vh;
