@@ -7,6 +7,7 @@ import CoachesPage from "./components/userNotLoggedIn/coachesPage/CoachesPage";
 import LoginPage from "./components/userNotLoggedIn/loginPage/LoginPage";
 import MainPage from "./components/userNotLoggedIn/mainPage/MainPage";
 import CalorieCalculator from "./components/userNotLoggedIn/calorieCalculator/calorieCalculator";
+import RegisterPage from "./components/userNotLoggedIn/registerPage/RegisterPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "coaches", element: <CoachesPage /> },
       { path: "caloriecalculator", element: <CalorieCalculator /> },
       { path: "login", element: <LoginPage /> },
+      { path: "register", element: <RegisterPage /> },
     ],
   },
 ]);
