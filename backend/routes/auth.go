@@ -41,6 +41,24 @@ func RegisterRoutes(router *gin.Engine, db *sql.DB) {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
+			// Tymczasowe logowanie "admin" bez bazy
+	if req.Username == "admin" && req.Password == "admin" {
+		token, err := utils.GenerateTokenJWT("0", "trener")
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, gin.H{
+			"message": "logged in as test admin",
+			"token":   token,
+			"user": gin.H{
+				"id":       0,
+				"username": "admin",
+				"role":     "trener",
+			},
+		})
+		return
+	}
 		var user models.User
 		err := db.QueryRow("SELECT id, username, password, role FROM users WHERE username = $1", req.Username).Scan(&user.ID, &user.Username, &user.Password, &user.Role)
 		if err != nil {
