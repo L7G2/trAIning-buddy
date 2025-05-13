@@ -6,7 +6,7 @@ import AboutPage from "./components/userNotLoggedIn/aboutPage/AboutPage";
 import CoachesPage from "./components/userNotLoggedIn/coachesPage/CoachesPage";
 import LoginPage from "./components/userNotLoggedIn/loginPage/LoginPage";
 import MainPage from "./components/userNotLoggedIn/mainPage/MainPage";
-import CalorieCalculator from "./components/userNotLoggedIn/calorieCalculator/calorieCalculator";
+import CalorieCalculator from "./components/userNotLoggedIn/calorieCalculator/CalorieCalculator";
 import RegisterPage from "./components/userNotLoggedIn/registerPage/RegisterPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
