@@ -1,6 +1,7 @@
 package app
 
 import (
+	"backend/internal/handlers"
 	"backend/internal/middleware"
 	"database/sql"
 	"github.com/gin-gonic/gin"
