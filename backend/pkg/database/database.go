@@ -8,8 +8,6 @@ import (
 	"os"
 )
 
-var db *sql.DB
-
 func Connect() (*sql.DB, error) {
 	dbUser := os.Getenv("DB_USER")
 	dbPass := os.Getenv("DB_PASS")
@@ -19,35 +17,40 @@ func Connect() (*sql.DB, error) {
 
 	connString := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-		dbHost, dbPort, dbUser, dbPass, dbName)
+		dbHost, dbPort, dbUser, dbPass, dbName,
+	)
+
 	db, err := sql.Open("postgres", connString)
 	if err != nil {
-		return nil, fmt.Errorf("[SQL] Error connecting to database: %v", err)
+		return nil, fmt.Errorf("[SQL] Error connecting: %w", err)
 	}
+
 	if err = db.Ping(); err != nil {
-		return nil, fmt.Errorf("[SQL] Error pinging database: %v", err)
+		return nil, fmt.Errorf("[SQL] Error pinging DB: %w", err)
 	}
+
 	log.Println("[SQL] Connected to database")
 	return db, nil
 }
 
-func Close() {
-	if db != nil {
-		_ = db.Close()
-		log.Println("[SQL] Closed database connection")
-	}
-}
-
 func RunMigrations(db *sql.DB) error {
-	migrationFile := "migrations/001_init.sql"
-	connect, err := os.ReadFile(migrationFile)
-	if err != nil {
-		return fmt.Errorf("[SQL] Error reading migration file: %v", err)
+	migrationFiles := []string{
+		"migrations/001_init.sql",
+		"migrations/002_products.sql",
 	}
-	_, err = db.Exec(string(connect))
-	if err != nil {
-		return fmt.Errorf("[SQL] Error executing migration file: %v", err)
+
+	for _, file := range migrationFiles {
+		content, err := os.ReadFile(file)
+		if err != nil {
+			return fmt.Errorf("[SQL] Error reading migration %s: %w", file, err)
+		}
+
+		if _, err := db.Exec(string(content)); err != nil {
+			return fmt.Errorf("[SQL] Error executing %s: %w", file, err)
+		}
+
+		log.Printf("[SQL] Migration %s applied", file)
 	}
-	log.Println("[SQL] Migrations successfully executed")
+
 	return nil
 }
