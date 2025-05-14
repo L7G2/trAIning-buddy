@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"backend/utils"
+	"backend/pkg/utils"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strings"
@@ -14,8 +14,8 @@ func AuthMiddleware() gin.HandlerFunc {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"message": "Unauthorized"})
 			return
 		}
-		tokenString := strings.TrimPrefix(authHeader, "Bearer ")
-		claims, err := utils.ParseTokenJWT(tokenString)
+		token := strings.TrimPrefix(authHeader, "Bearer ")
+		claims, err := utils.ParseTokenJWT(token)
 		if err != nil {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"message": "Unauthorized"})
 			return
