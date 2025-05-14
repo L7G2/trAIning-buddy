@@ -2,15 +2,22 @@ package utils
 
 import (
 	"github.com/golang-jwt/jwt/v5"
+	"os"
 	"time"
 )
-
-var jwtKey = []byte("secret_key") //TODO: .env + parser
 
 type Claims struct {
 	UserID string `json:"user_id"`
 	Role   string `json:"role"`
 	jwt.RegisteredClaims
+}
+
+func getJWTKey() []byte {
+	key := os.Getenv("JWT_SECRET")
+	if key == "" {
+		key = "gdzie_masz_plik_dotenv"
+	}
+	return []byte(key)
 }
 
 func GenerateTokenJWT(userID string, role string) (string, error) {
@@ -23,12 +30,12 @@ func GenerateTokenJWT(userID string, role string) (string, error) {
 		},
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	return token.SignedString(jwtKey)
+	return token.SignedString(getJWTKey())
 }
 func ParseTokenJWT(tokenString string) (*Claims, error) {
 	claims := &Claims{}
 	token, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-		return jwtKey, nil
+		return getJWTKey(), nil
 	})
 	if err != nil || !token.Valid {
 		return nil, err
