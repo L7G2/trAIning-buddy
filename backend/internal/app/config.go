@@ -31,4 +31,27 @@ func SetupRoutes(router *gin.Engine, db *sql.DB) {
 		authGroup.GET("", profileHandler.GetProfile)
 		authGroup.POST("", profileHandler.SaveProfile)
 	}
+
+	trainingRepo := repositories.NewTrainingPlanRepository(db)
+	trainingHandler := handlers.NewTrainingPlanHandler(trainingRepo)
+	plansGroup := router.Group("/plans")
+	plansGroup.Use(middleware.AuthMiddleware())
+	{
+		plansGroup.POST("", trainingHandler.Create)
+		plansGroup.GET("", trainingHandler.GetMyPlans)
+	}
+
+	workoutRepo := repositories.NewWorkoutRepository(db)
+	workoutHandler := handlers.NewWorkoutHandler(workoutRepo)
+	router.Group("/plans/:planID/workouts").
+		Use(middleware.AuthMiddleware()).
+		POST("", workoutHandler.Create).
+		GET("", workoutHandler.List)
+
+	exerciseRepo := repositories.NewExerciseRepository(db)
+	exerciseHandler := handlers.NewExerciseHandler(exerciseRepo)
+	router.Group("/workouts/:workoutID/exercises").
+		Use(middleware.AuthMiddleware()).
+		POST("", exerciseHandler.Create).
+		GET("", exerciseHandler.List)
 }
