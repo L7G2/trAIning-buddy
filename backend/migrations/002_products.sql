@@ -1,3 +1,4 @@
+--469 rekordow
 INSERT INTO food_products (name, calories, protein, fat, carbs) VALUES
 ('Agrest', 41.0, 0.8, 0.2, 11.8),
 ('Amarantus, nasiona', 400.0, 14.5, 6.5, 66.2),
