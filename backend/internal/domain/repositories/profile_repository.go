@@ -3,6 +3,7 @@ package repositories
 import (
 	"backend/internal/domain/models"
 	"database/sql"
+	"fmt"
 )
 
 type ProfileRepository struct {
@@ -18,6 +19,7 @@ func (r *ProfileRepository) GetByUserID(userID int) (*models.Profile, error) {
 	var p models.Profile
 	err := row.Scan(&p.UserID, &p.Age, &p.Height, &p.Weight, &p.Gender, &p.Goal)
 	if err != nil {
+		fmt.Println("SCAN ERROR: ", err)
 		return nil, err
 	}
 	return &p, nil
