@@ -79,8 +79,8 @@ func (h *AuthHandler) Login(c *gin.Context) {
 }
 
 func (h *AuthHandler) Me(c *gin.Context) {
-	userID := c.MustGet("userID")
-	role := c.MustGet("role")
+	userID := c.MustGet("user_id").(int)
+	role := c.MustGet("role").(string)
 	c.JSON(http.StatusOK, gin.H{
 		"userID": userID,
 		"role":   role,

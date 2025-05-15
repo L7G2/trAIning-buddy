@@ -4,6 +4,7 @@ import (
 	"backend/pkg/utils"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
 	"strings"
 )
 
@@ -20,7 +21,12 @@ func AuthMiddleware() gin.HandlerFunc {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"message": "Unauthorized"})
 			return
 		}
-		c.Set("user_id", claims.UserID)
+		userID, err := strconv.Atoi(claims.UserID)
+		if err != nil {
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"message": "Unauthorized"})
+			return
+		}
+		c.Set("user_id", userID)
 		c.Set("role", claims.Role)
 		c.Next()
 	}
