@@ -54,4 +54,13 @@ func SetupRoutes(router *gin.Engine, db *sql.DB) {
 		Use(middleware.AuthMiddleware()).
 		POST("", exerciseHandler.Create).
 		GET("", exerciseHandler.List)
+
+	calculator := handlers.NewCalculatorHandler(db)
+
+	router.POST("/calculate", middleware.AuthMiddleware(), calculator.Calculate)
+
+	productHandler := handlers.NewProductHandler(db)
+
+	router.GET("/products", middleware.AuthMiddleware(), productHandler.List)
+
 }
