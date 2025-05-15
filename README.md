@@ -1,2 +1,2 @@
 # trAIning-buddy
-Software Engineering and Data Bases project 
+Software Engineering and Data Bases project
