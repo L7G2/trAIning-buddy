@@ -5,7 +5,6 @@ import (
 	"backend/internal/domain/repositories"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"strconv"
 )
 
 type ProfileHandler struct {
@@ -17,7 +16,7 @@ func NewProfileHandler(repo *repositories.ProfileRepository) *ProfileHandler {
 }
 
 func (h *ProfileHandler) GetProfile(c *gin.Context) {
-	userID, _ := strconv.Atoi(c.GetString("user_id"))
+	userID := c.MustGet("user_id").(int)
 	profile, err := h.Repo.GetByUserID(userID)
 	if err != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Profile not found"})
@@ -26,7 +25,7 @@ func (h *ProfileHandler) GetProfile(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"profile": profile})
 }
 func (h *ProfileHandler) SaveProfile(c *gin.Context) {
-	userID, _ := strconv.Atoi(c.GetString("userID"))
+	userID := c.MustGet("user_id").(int)
 
 	var input models.Profile
 	if err := c.ShouldBindJSON(&input); err != nil {
