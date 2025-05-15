@@ -17,7 +17,7 @@ func NewProductHandler(db *sql.DB) *ProductHandler {
 
 func (h *ProductHandler) List(c *gin.Context) {
 	search := c.Query("search")
-	query := `SELECT id, name, calories, protein, fat, carbs FROM food_products`
+	query := "SELECT id, name, calories, protein, fat, carbs FROM food_products"
 	args := []interface{}{}
 
 	if search != "" {
