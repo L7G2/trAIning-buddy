@@ -1,0 +1,72 @@
+#root {
+    height: 90%;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.register-site-frame{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-frame{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: linear-gradient(to right, green 0%, black 25%, black 75%, yellow 100%);
+    width: 75%;
+    height: 80%;
+    border-radius: 25px;
+    transition: all 0.4s ease-in-out;
+}
+.register-frame:hover{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: linear-gradient(to right, green 0%, black 25%, black 75%, yellow 100%);
+    width: 75%;
+    height: 80%;
+    border-radius: 30px;
+    box-shadow: 
+        -10px 0 5px 1px rgba(255, 255, 0, 0.5), /* Żółty cień po lewej */
+        10px 0 5px 1px rgba(0, 255, 0, 0.5),  /* Zielony cień po prawej */
+        0 -10px 5px 1px rgba(0, 255, 0, 0.5), /* Zielony cień u góry */
+        0 10px 5px 1px rgba(255, 255, 0, 0.5);  /* Żółty cień u dołu */
+}
+.register-heading{
+    font-size: 4em;
+    color: white;
+}
+
+.register-input{
+    margin-bottom: 2em;
+    height: 24%;
+    width: 30%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.register-button{
+    border-radius: 25px;
+    width: 16%;
+    height: 20%;
+    background-color: white;
+    color: black;
+    font-size: 2em;  
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border: 1px solid black;
+}
+
+.register-button:hover{
+    background: linear-gradient(to right, yellow 0%, white 25%, white 75%, green 100%);
+    color: black;
+    cursor: pointer;
+}
+.link-to-register{
+    font-size: 2em;
+}

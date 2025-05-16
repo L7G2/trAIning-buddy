@@ -1,0 +1,24 @@
+.products-frame{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products-panel{
+    background-color: black;
+    width: 90%;
+    height: 90%;
+    border-radius: 45px;
+    display: flex;
+    justify-content: center;
+}
+
+.products-heading{
+    background: gray;
+    width: 100%;
+    height: 12%;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    font-size: 4em;
+}
