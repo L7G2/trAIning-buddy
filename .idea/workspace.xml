@@ -5,60 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39665dfc-b7c2-4448-8571-dc0dd7c63877" name="Changes" comment="frontend">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/trAIning-buddy.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/eslint.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/public/caloriecalculator.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/public/personal trainer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/public/training.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/public/vite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/assets/react.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/aboutPage/AboutPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/calorieCalculator/CalorieCalculator.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/calorieCalculator/calculations/Calculations.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/calorieCalculator/calculations/personData/PersonData.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/calorieCalculator/calculations/personData/PersonData.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/calorieCalculator/calculations/plots/Plots.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/calorieCalculator/calculations/plots/Plots.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/calorieCalculator/calorieCalculator.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/calorieCalculator/products/Products.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/calorieCalculator/products/Products.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/coachesPage/CoachesPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/loginPage/LoginPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/loginPage/LoginPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/mainPage/MainPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/mainPage/MainPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/mainPage/calorieComponent/CalorieComponent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/mainPage/calorieComponent/CalorieComponent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/mainPage/lookingForClients/LookingForClients.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/mainPage/lookingForClients/LookingForClients.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/mainPage/lookingForCoach/LookingForCoach.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/mainPage/lookingForCoach/LookingForCoach.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/navigation/NotLoggedNav.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/navigation/NotLoggedNav.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/registerPage/RegisterPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/components/userNotLoggedIn/registerPage/RegisterPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/main.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/src/vite-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/tsconfig.node.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/trAIning-buddy/vite.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +183,9 @@
     <option name="version" value="3" />
   </component>
   <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="javascript:npm:react" />
     <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:vite" />
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
     <option featureType="dependencySupport" implementationName="executable:kubectl" />
     <option featureType="com.intellij.configurationType" implementationName="NodeJSConfigurationType" />
