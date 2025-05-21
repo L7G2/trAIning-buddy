@@ -1,6 +1,7 @@
 import "./Products.css";
 import { useEffect, useState } from "react";
 
+// Typ produktu
 interface Product {
   id: number;
   name: string;
@@ -9,11 +10,17 @@ interface Product {
   fat: number;
   carbs: number;
 }
-interface ProductsProps {
-  onSelectionChange: (quantities: Record<number, number>) => void;
-  onProductList: (products: Product[]) => void;
+
+// Typ produktu z ilością
+interface SelectedProduct extends Product {
+  amount: number;
 }
-function Products({ onSelectionChange, onProductList }: ProductsProps) {
+
+interface ProductsProps {
+  onSelectionChange: (selected: SelectedProduct[]) => void;
+}
+
+function Products({ onSelectionChange }: ProductsProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [quantities, setQuantities] = useState<Record<number, number>>({});
 
@@ -22,19 +29,27 @@ function Products({ onSelectionChange, onProductList }: ProductsProps) {
       .then((res) => res.json())
       .then((data: Product[]) => {
         setProducts(data);
-        onProductList(data);
       })
       .catch((err) => console.error("Błąd pobierania produktów:", err));
   }, []);
 
   const handleChange = (id: number, value: string) => {
     const num = parseFloat(value);
-    const newQuantities = {
+    const updatedQuantities = {
       ...quantities,
       [id]: isNaN(num) ? 0 : num,
     };
-    setQuantities(newQuantities);
-    onSelectionChange(newQuantities); // aktualizuj nadrzędny komponent
+    setQuantities(updatedQuantities);
+
+    // Zbuduj listę tylko wybranych produktów (> 0)
+    const selected: SelectedProduct[] = products
+      .filter((p) => updatedQuantities[p.id] > 0)
+      .map((p) => ({
+        ...p,
+        amount: updatedQuantities[p.id],
+      }));
+
+    onSelectionChange(selected);
   };
 
   return (

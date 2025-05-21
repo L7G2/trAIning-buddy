@@ -3,31 +3,25 @@ import Products from "./products/Products";
 import Calculations from "./calculations/Calculations";
 import "./CalorieCalculator.css";
 
-interface Product {
+interface SelectedProduct {
   id: number;
   name: string;
   calories: number;
   protein: number;
   fat: number;
   carbs: number;
+  amount: number; // ilość wybrana przez użytkownika
 }
 
 function CalorieCalculator() {
-  const [selectedProducts, setSelectedProducts] = useState<
-    Record<number, number>
-  >({}); // <-- tutaj obiekt!
-  const [productList, setProductList] = useState<Product[]>([]);
+  const [selectedProducts, setSelectedProducts] = useState<SelectedProduct[]>(
+    []
+  );
 
   return (
     <div className="calorie-frame">
-      <Products
-        onSelectionChange={setSelectedProducts}
-        onProductList={setProductList}
-      />
-      <Calculations
-        selectedProducts={selectedProducts}
-        productList={productList}
-      />
+      <Products onSelectionChange={setSelectedProducts} />
+      <Calculations selectedProducts={selectedProducts} />
     </div>
   );
 }
