@@ -61,6 +61,6 @@ func SetupRoutes(router *gin.Engine, db *sql.DB) {
 
 	productHandler := handlers.NewProductHandler(db)
 
-	router.GET("/products", middleware.AuthMiddleware(), productHandler.List)
+	router.GET("/products", productHandler.List)
 
 }

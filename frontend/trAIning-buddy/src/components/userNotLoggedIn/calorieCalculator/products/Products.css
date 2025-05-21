@@ -1,17 +1,21 @@
 .products-frame{
-    width: 50%;
     display: flex;
+    width: 50%;
+    height: 96%;
     justify-content: center;
     align-items: center;
 }
 
 .products-panel{
-    background-color: black;
-    width: 90%;
-    height: 90%;
-    border-radius: 45px;
     display: flex;
+    background-color: black;
+    width: 80%;
+    height: 86%;
+    border-radius: 45px;
     justify-content: center;
+    flex-direction: column;
+
+    max-height: 86%;  /* wysokość kontenera - możesz zmienić */
 }
 
 .products-heading{
@@ -21,4 +25,62 @@
     border-top-left-radius: 45px;
     border-top-right-radius: 45px;
     font-size: 4em;
+}
+
+.products-list {
+    display: flex;
+    align-items: center;
+    padding-top: 1%;
+    height: 88%;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    overflow-y: auto;
+}
+
+.product-item {
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+width: 96%;
+  background-color: gray;
+  color: black;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.product-item:hover {
+  background-color: yellow;
+}
+
+.product-item strong {
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.product-item span {
+  font-size: 0.9rem;
+  color: black;
+}
+
+.product-input {
+  width: 40px;
+  padding: 4px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-item.selected {
+  background-color: green;
+  border-color: #71c671;
 }

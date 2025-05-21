@@ -1,6 +1,44 @@
+import { useState } from "react";
 import "./PersonData.css";
 
-function PersonData() {
+interface PersonDataType {
+  dailyCalories: number;
+  dailyProtein: number;
+  dailyFat: number;
+  dailyCarbs: number;
+  age: number;
+  weight: number;
+  height: number;
+  activityLevel: string;
+}
+interface PersonBasicData {
+  gender: string;
+  weight: number;
+  lifestyle: string;
+  bodyType: string;
+}
+
+interface PersonDataProps {
+  onDataChange: (data: PersonBasicData) => void;
+}
+
+function PersonData({ onDataChange }: PersonDataProps) {
+  const [gender, setGender] = useState("woman");
+  const [weight, setWeight] = useState<number | "">("");
+  const [lifestyle, setLifestyle] = useState("lazy");
+  const [bodyType, setBodyType] = useState("athlete");
+  const handleSubmit = () => {
+    if (weight === "" || weight <= 0) {
+      alert("Podaj poprawną wagę!");
+      return;
+    }
+    onDataChange({
+      gender,
+      weight: Number(weight),
+      lifestyle,
+      bodyType,
+    });
+  };
   return (
     <div className="person-data-frame">
       <PersonDataPanel />
