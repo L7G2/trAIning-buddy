@@ -14,7 +14,8 @@
 }
 
 .person-data-heading{
-    background: gray;
+    background: green;
+    color: yellow;
     width: 100%;
     height: 20%;
     border-top-left-radius: 45px;

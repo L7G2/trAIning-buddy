@@ -13,7 +13,8 @@
 }
 
 .plots-heading{
-    background: grey;
+    background: green;
+    color: yellow;
     width: 100%;
     height: 14%;
     border-top-left-radius: 45px;

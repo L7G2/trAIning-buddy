@@ -69,9 +69,9 @@ function calculateDailyCalories(personData: PersonData): number {
 
 function Plots({ calcResult, personData, selectedProducts }: PlotsProps) {
   const data = [
-    { name: "Białko", value: calcResult.protein },
-    { name: "Tłuszcz", value: calcResult.fat },
-    { name: "Węglowodany", value: calcResult.carbs },
+    { name: "B", value: calcResult.protein },
+    { name: "T", value: calcResult.fat },
+    { name: "W", value: calcResult.carbs },
   ];
 
   const pieData = {
@@ -146,10 +146,13 @@ function Plots({ calcResult, personData, selectedProducts }: PlotsProps) {
     <div className="plots-frame">
       <Heading />
       <div className="plots-panel">
-        <div style={{ maxWidth: "50%", margin: "2rem auto" }}>
-          <h3>Makroskładniki</h3>
-          <Pie data={pieData} options={pieOptions} />
-        </div>
+        {calcResult &&
+          (calcResult.protein || calcResult.fat || calcResult.carbs) > 0 && (
+            <div style={{ maxWidth: "50%", margin: "2rem auto" }}>
+              <h3>Makroskładniki</h3>
+              <Pie data={pieData} options={pieOptions} />
+            </div>
+          )}
 
         {personData && calorieChart && (
           <div style={{ maxWidth: "50%", margin: "2rem auto" }}>
