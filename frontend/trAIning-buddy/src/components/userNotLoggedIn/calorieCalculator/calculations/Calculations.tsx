@@ -42,7 +42,7 @@ function Calculations({ selectedProducts }: CalculationsProps) {
   const calculateNutrition = (): CalcResultType => {
     return selectedProducts.reduce(
       (acc, product) => {
-        const factor = product.amount / 100;
+        const factor = product.amount;
         acc.calories += product.calories * factor;
         acc.protein += product.protein * factor;
         acc.fat += product.fat * factor;

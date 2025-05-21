@@ -1,13 +1,15 @@
 .plots-frame{
     width: 100%;
-    height: 60%;
+    height: 58%;
+    background-color: black;
+    border-radius: 45px;
 }
 
 .plots-panel{
     width: 100%;
-    height: 56%;
-    border-radius: 45px;
-    background-color: black;
+    height: 84%;
+    display: flex;
+    flex-direction: row;
 }
 
 .plots-heading{
