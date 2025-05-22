@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import "./LoginPage.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "./../../../UserContext";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+
+  const { setRole } = useUser();
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,8 +26,15 @@ function LoginPage() {
 
       if (response.ok) {
         localStorage.setItem("token", data.token);
+        setRole(data.user.role); // ustaw rolę użytkownika
         setMessage(`Zalogowano jako ${data.user.username}`);
-        navigate("/dashboard");
+
+        // Sprawdzenie roli i przekierowanie
+        if (data.user.role === "uczen" || data.user.role === "trener") {
+          navigate("/");
+        } else {
+          setMessage("Nieznana rola użytkownika");
+        }
       } else {
         setMessage(data.error || "Błąd logowania");
       }
