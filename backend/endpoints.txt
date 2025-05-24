@@ -1,0 +1,199 @@
+1) Diet plan:
+- GetDietPlanByUserID: (with meals)
+GET http://localhost:8080/users/:userId/diet-plans
+
+Response:
+[
+    {
+        "id": 1,
+        "user_id": 2,
+        "created_at": "2025-05-22T15:07:18.299331Z",
+        "meals": [
+            {
+                "id": 1,
+                "diet_plan_id": 1,
+                "meal_order": 1,
+                "name": "Śniadanie – jajecznica z warzywami",
+                "calories": 400,
+                "proteins": 25,
+                "fats": 20,
+                "carbs": 30
+            }
+        ]
+    }
+]
+
+- CreateDietPlan
+POST http://localhost:8080/users/:userId/diet-plans
+
+Response:
+{
+    "id": 2,
+    "user_id": 5,
+    "created_at": "2025-05-23T20:22:47.81257Z"
+}
+
+2) Diet summary:
+- GetDietSummary
+GET http://localhost:8080/diet-plans/:dietPlanId/summary
+
+Response:
+{
+    "diet_plan_id": 1,
+    "total_calories": 400,
+    "total_proteins": 25,
+    "total_fats": 20,
+    "total_carbs": 30
+}
+
+3) Meal:
+- AddMeal
+POST http://localhost:8080/diet-plans/:dietPlanId/meals
+
+Request:
+{
+  "meal_order": 2,
+  "name": "Filet z kurczaka",
+  "calories": 400,
+  "proteins": 25,
+  "fats": 20,
+  "carbs": 30
+}
+
+Response:
+{
+    "id": 2,
+    "diet_plan_id": 1,
+    "meal_order": 2,
+    "name": "Filet z kurczaka",
+    "calories": 400,
+    "proteins": 25,
+    "fats": 20,
+    "carbs": 30
+}
+
+4) Media File:
+- GetMediaFileByExerciseId
+GET http://localhost:8080/exercises/:exerciseID/media
+
+
+
+- AddMediaFile:
+POST http://localhost:8080/media
+
+Request:
+{
+  "title": "Squat Tutorial",
+  "url": "https://example.com/squat.mp4"
+}
+
+Response:
+{
+    "id": 2,
+    "title": "Squat Tutorial",
+    "url": "https://example.com/squat.mp4",
+    "uploaded_by": null,
+    "created_at": "2025-05-23T20:32:45.434013Z"
+}
+
+5) Progress Report:
+- GetProgressReportsByUserId:
+GET http://localhost:8080/users/:userId/progress-reports
+
+Response:
+[
+    {
+        "ID": 2,
+        "user_id": 2,
+        "date": "2025-05-01T00:00:00Z",
+        "weight": 75.4,
+        "notes": "Spadek wagi po intensywnym tygodniu"
+    }
+]
+
+- AddProgressReport:
+POST http://localhost:8080/users/:userId/progress-reports
+
+Request:
+{
+  "date": "2025-05-01T00:00:00Z",
+  "weight": 75.4,
+  "notes": "Spadek wagi po intensywnym tygodniu"
+}
+
+6) User:
+- GetAllUsers
+GET http://localhost:8080/users/
+
+Response:
+[
+    {
+        "id": 1,
+        "username": "jan_kowalski",
+        "role": "trainer"
+    },
+    {
+        "id": 2,
+        "username": "anna_nowak",
+        "role": "trainee"
+    }
+]
+
+- GetUserById
+GET http://localhost:8080/users/:userId
+
+Response:
+{
+    "id": 1,
+    "username": "jan_kowalski",
+    "role": "trainer"
+}
+
+- AddUser
+POST http://localhost:8080/users/
+
+Request:
+{
+  "username": "mateusz.zajdel",
+  "password": "haslohaslo",
+  "role": "trainee"
+}
+
+Response:
+{
+    "id": 7,
+    "username": "mateusz.zajdel",
+    "password": "haslohaslo",
+    "role": "trainee"
+}
+
+7) Exercise-Media-Map:
+- Add map:
+POST http://localhost:8080/exercise-media:
+
+Request:
+{
+  "exercise_id": 1,
+  "media_id": 1
+}
+
+Response:
+{
+    "id": 1,
+    "exercise_id": 1,
+    "media_id": 1
+}
+
+- GetMediaByExerciseId
+GET http://localhost:8080/exercise-media/1
+
+Response:
+[
+    {
+        "id": 1,
+        "title": "Squat Tutorial",
+        "url": "https://example.com/squat.mp4",
+        "uploaded_by": null,
+        "created_at": "2025-05-23T18:29:00.093993Z"
+    }
+]

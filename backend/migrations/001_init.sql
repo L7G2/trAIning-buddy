@@ -119,3 +119,12 @@ CREATE TABLE IF NOT EXISTS messages (
                           message TEXT NOT NULL,
                           sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- 14. Tabela pośrednia: exercise-media
+CREATE TABLE IF NOT EXISTS exercise_media_map (
+                                                    id SERIAL PRIMARY KEY,
+                                                    exercise_id INTEGER NOT NULL REFERENCES exercises(id) ON DELETE CASCADE,
+    media_id INTEGER NOT NULL REFERENCES media_files(id) ON DELETE CASCADE,
+    UNIQUE (exercise_id, media_id)
+    );
+
