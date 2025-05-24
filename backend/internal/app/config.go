@@ -63,4 +63,52 @@ func SetupRoutes(router *gin.Engine, db *sql.DB) {
 
 	router.GET("/products", productHandler.List)
 
+	//User:
+	userRepo := repositories.NewUserRepository(db)
+	userHandler := handlers.NewUserHandler(userRepo)
+
+	router.GET("/users", userHandler.List)
+	router.POST("/users", userHandler.Create)
+	router.GET("/users/:userID", userHandler.GetByID)
+
+	//ProgressReport:
+	progressRepo := repositories.NewProgressReportRepository(db)
+	progressHandler := handlers.NewProgressReportHandler(progressRepo)
+	router.Group("/users/:userID/progress-reports").
+		POST("", progressHandler.Create).
+		GET("", progressHandler.List)
+
+	//DietPlan:
+	dietPlanRepo := repositories.NewDietPlanRepository(db)
+	dietPlanHandler := handlers.NewDietPlanHandler(dietPlanRepo)
+	router.Group("/users/:userID/diet-plans").
+		POST("", dietPlanHandler.Create).
+		GET("", dietPlanHandler.List)
+	router.GET("/diet-plans/:dietPlanID/summary", dietPlanHandler.Summary)
+
+	//Meal:
+	mealRepo := repositories.NewMealRepository(db)
+	mealHandler := handlers.NewMealHandler(mealRepo)
+	router.Group("/diet-plans/:dietPlanID/meals").
+		POST("", mealHandler.Create).
+		GET("", mealHandler.List)
+
+	//MediaFile:
+	mediaFileRepo := repositories.NewMediaRepository(db)
+	mediaFileHandler := handlers.NewMediaHandler(mediaFileRepo)
+
+	mediaGroup := router.Group("/media")
+	{
+		mediaGroup.POST("", mediaFileHandler.Create)
+		mediaGroup.GET("", mediaFileHandler.List)
+	}
+	router.GET("/exercises/:exerciseID/media", mediaFileHandler.GetByExerciseID)
+
+	// Exercise-media-map:
+	exerciseMediaRepo := repositories.NewExerciseMediaRepository(db)
+	exerciseMediaHandler := handlers.NewExerciseMediaHandler(exerciseMediaRepo)
+
+	router.POST("/exercise-media", exerciseMediaHandler.CreateLink)
+	router.GET("/exercise-media/:exerciseID", exerciseMediaHandler.GetMediaByExerciseID)
+
 }
